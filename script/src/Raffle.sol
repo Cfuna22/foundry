@@ -29,13 +29,13 @@ import {AutomationCompatibleInterface} from "@chainlink/contracts/src/v0.8/inter
 
 /**
  * @title A sample Raffle Contract
- * @author Patrick Collins
+ * @author Abel Sifuna
  * @notice This contract is for creating a sample raffle contract
  * @dev This implements the Chainlink VRF Version 2
  */
 contract Raffle is VRFConsumerBaseV2Plus, AutomationCompatibleInterface {
     /* Errors */
-    error Raffle__UpkeepNotNeeded(uint256 currentBalance, uint256 numPlayers, uint256 raffleState);
+    error Raffle__UpkeepNotNeeded (uint256 currentBalance, uint256 numPlayers, uint256 raffleState);
     error Raffle__TransferFailed();
     error Raffle__SendMoreToEnterRaffle();
     error Raffle__RaffleNotOpen();
@@ -111,7 +111,7 @@ contract Raffle is VRFConsumerBaseV2Plus, AutomationCompatibleInterface {
      * 1. The time interval has passed between raffle runs.
      * 2. The lottery is open.
      * 3. The contract has ETH.
-     * 4. Implicity, your subscription is funded with LINK.
+     * 4. Implicitly, your subscription is funded with LINK.
      */
     function checkUpkeep(bytes memory /* checkData */ )
         public

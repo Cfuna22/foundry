@@ -3,33 +3,6 @@
 > 1. V2.5 of Chainlink VRF uses a `uint256` as a subId instead of a `uint64` this repo has a comment to reflect that. We added a mock in case you'd like to work with version 2.5.
 > 2. We use `0.1.0` of the `foundry-devops` package which doesn't need to have `ffi=true`
 
-# Foundry Smart Contract Lottery
-
-This is a section of the Cyfrin Foundry Solidity Course.
-
-*[⭐️ (3:04:09) | Lesson 9: Foundry Smart Contract Lottery](https://www.youtube.com/watch?v=sas02qSFZ74&t=11049s)*
-
-- [Foundry Smart Contract Lottery](#foundry-smart-contract-lottery)
-- [Getting Started](#getting-started)
-  - [Requirements](#requirements)
-  - [Quickstart](#quickstart)
-    - [Optional Gitpod](#optional-gitpod)
-- [Usage](#usage)
-  - [Start a local node](#start-a-local-node)
-  - [Library](#library)
-  - [Deploy](#deploy)
-  - [Deploy - Other Network](#deploy---other-network)
-  - [Testing](#testing)
-    - [Test Coverage](#test-coverage)
-- [Deployment to a testnet or mainnet](#deployment-to-a-testnet-or-mainnet)
-  - [Scripts](#scripts)
-  - [Estimate gas](#estimate-gas)
-- [Formatting](#formatting)
-- [Additional Info:](#additional-info)
-  - [Let's talk about what "Official" means](#lets-talk-about-what-official-means)
-  - [Summary](#summary)
-- [Thank you!](#thank-you)
-
 # Getting Started
 
 ## Requirements
@@ -196,9 +169,8 @@ So, then you have two options:
 
 If you appreciated this, feel free to follow me or donate!
 
-ETH/Arbitrum/Optimism/Polygon/etc Address: 0x9680201d9c93d65a3603d2088d125e955c73BD65
+ETH/Arbitrum/Optimism/Polygon/etc Address: 0x532111bde5dcfc07a9765435073149188f61df4e
 
-[![Patrick Collins Twitter](https://img.shields.io/badge/Twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white)](https://twitter.com/PatrickAlphaC)
-[![Patrick Collins YouTube](https://img.shields.io/badge/YouTube-FF0000?style=for-the-badge&logo=youtube&logoColor=white)](https://www.youtube.com/channel/UCn-3f8tw_E1jZvhuHatROwA)
-[![Patrick Collins Linkedin](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/patrickalphac/)
-[![Patrick Collins Medium](https://img.shields.io/badge/Medium-000000?style=for-the-badge&logo=medium&logoColor=white)](https://medium.com/@patrick.collins_58673/)
+[![Abel Sifuna Twitter](https://www.twitter.com/sifuna_abe71661)]
+[![Abel Sifuna YouTube](https://www.youtube.com/@abelsifuna6569)]
+[![Abel Sifuna Linkedin](https://www.linkedin.com/in/abel-sifuna-b0a928353?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app)]

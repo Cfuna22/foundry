@@ -3,7 +3,7 @@
 pragma solidity ^0.8.19;
 
 import {DeployRaffle} from "../../script/DeployRaffle.s.sol";
-import {Raffle} from "../../src/Raffle.sol";
+import {Raffle} from "../../script/src/Raffle.sol";
 import {HelperConfig} from "../../script/HelperConfig.s.sol";
 import {Test, console2} from "forge-std/Test.sol";
 import {Vm} from "forge-std/Vm.sol";
@@ -13,7 +13,7 @@ import {CodeConstants} from "../../script/HelperConfig.s.sol";
 
 contract RaffleTest is Test, CodeConstants {
     /*//////////////////////////////////////////////////////////////
-                                 ERRORS
+                    ERRORS
     //////////////////////////////////////////////////////////////*/
     event RequestedRaffleWinner(uint256 indexed requestId);
     event RaffleEnter(address indexed player);
@@ -62,7 +62,7 @@ contract RaffleTest is Test, CodeConstants {
     }
 
     /*//////////////////////////////////////////////////////////////
-                              ENTER RAFFLE
+                        ENTER RAFFLE
     //////////////////////////////////////////////////////////////*/
     function testRaffleRevertsWHenYouDontPayEnought() public {
         // Arrange
@@ -107,7 +107,7 @@ contract RaffleTest is Test, CodeConstants {
     }
 
     /*//////////////////////////////////////////////////////////////
-                              CHECKUPKEEP
+                            CHECKUPKEEP
     //////////////////////////////////////////////////////////////*/
     function testCheckUpkeepReturnsFalseIfItHasNoBalance() public {
         // Arrange
@@ -165,7 +165,7 @@ contract RaffleTest is Test, CodeConstants {
     }
 
     /*//////////////////////////////////////////////////////////////
-                             PERFORMUPKEEP
+                            ERFORMUPKEEP
     //////////////////////////////////////////////////////////////*/
     function testPerformUpkeepCanOnlyRunIfCheckUpkeepIsTrue() public {
         // Arrange
@@ -212,7 +212,7 @@ contract RaffleTest is Test, CodeConstants {
     }
 
     /*//////////////////////////////////////////////////////////////
-                           FULFILLRANDOMWORDS
+                        FULFILLRANDOMWORDS
     //////////////////////////////////////////////////////////////*/
     modifier raffleEntered() {
         vm.prank(PLAYER);
@@ -229,15 +229,12 @@ contract RaffleTest is Test, CodeConstants {
         _;
     }
 
-    function testFulfillRandomWordsCanOnlyBeCalledAfterPerformUpkeep() public raffleEntered skipFork {
+    function testFulfillRandomWordsCanOnlyBeCalledAfterPerformUpkeep(uint256 randomRequestId) public raffleEntered skipFork {
         // Arrange
         // Act / Assert
         vm.expectRevert(VRFCoordinatorV2_5Mock.InvalidRequest.selector);
         // vm.mockCall could be used here...
-        VRFCoordinatorV2_5Mock(vrfCoordinatorV2_5).fulfillRandomWords(0, address(raffle));
-
-        vm.expectRevert(VRFCoordinatorV2_5Mock.InvalidRequest.selector);
-        VRFCoordinatorV2_5Mock(vrfCoordinatorV2_5).fulfillRandomWords(1, address(raffle));
+        VRFCoordinatorV2_5Mock(vrfCoordinatorV2_5).fulfillRandomWords(randomRequestId, address(raffle));
     }
 
     function testFulfillRandomWordsPicksAWinnerResetsAndSendsMoney() public raffleEntered skipFork {

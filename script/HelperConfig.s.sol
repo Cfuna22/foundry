@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.19;
+pragma solidity 0.8.19;
 
 import {LinkToken} from "../test/mocks/LinkToken.sol";
 import {Script, console2} from "forge-std/Script.sol";
@@ -20,12 +20,12 @@ abstract contract CodeConstants {
 
 contract HelperConfig is CodeConstants, Script {
     /*//////////////////////////////////////////////////////////////
-                                 ERRORS
+                                ERRORS
     //////////////////////////////////////////////////////////////*/
     error HelperConfig__InvalidChainId();
 
     /*//////////////////////////////////////////////////////////////
-                                 TYPES
+                                TYPES
     //////////////////////////////////////////////////////////////*/
     struct NetworkConfig {
         uint256 subscriptionId;
@@ -46,7 +46,7 @@ contract HelperConfig is CodeConstants, Script {
     mapping(uint256 chainId => NetworkConfig) public networkConfigs;
 
     /*//////////////////////////////////////////////////////////////
-                               FUNCTIONS
+                            FUNCTIONS
     //////////////////////////////////////////////////////////////*/
     constructor() {
         networkConfigs[ETH_SEPOLIA_CHAIN_ID] = getSepoliaEthConfig();
@@ -104,7 +104,7 @@ contract HelperConfig is CodeConstants, Script {
             return localNetworkConfig;
         }
 
-        console2.log(unicode"⚠️ You have deployed a mock conract!");
+        console2.log(unicode"⚠️ You have deployed a mock contract!");
         console2.log("Make sure this was intentional");
         vm.startBroadcast();
         VRFCoordinatorV2_5Mock vrfCoordinatorV2_5Mock =

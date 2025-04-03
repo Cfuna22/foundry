@@ -1,8 +1,10 @@
 [profile.default]
 src = "src"
+solc_version = "0.8.19"  # Or any version you need
+
 out = "out"
 libs = ["lib"]
-remappings = ['@chainlink/contracts/=lib/chainlink-brownie-contracts/contracts/', '@solmate=lib/solmate/src/']
+remappings = ['@chainlink/contracts/=lib/chainlink-brownie-contracts/contracts/', '@solmate=lib/solmate/src/', ]
 
 [etherscan]
 mainnet = { key = "${ETHERSCAN_API_KEY}" }
@@ -10,5 +12,8 @@ sepolia = {key = "${ETHERSCAN_API_KEY}"}
 
 [rpc_endpoints]
 sepolia = "${SEPOLIA_RPC_URL}"
+
+[fuzz]
+runs = 256
 
 # See more config options https://github.com/foundry-rs/foundry/tree/master/config
